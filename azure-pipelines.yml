@@ -32,13 +32,9 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-- task: DotNetCoreCLI@2
- inputs:
-   command: 'publish'
-   publishWebProjects: true
-   zipAfterPublish: true
-   arguments: '--output $(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
- inputs:
-   pathToPublish: $(Build.ArtifactStagingDirectory)
-   artifactName: AspNetCoreExample
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+ 
